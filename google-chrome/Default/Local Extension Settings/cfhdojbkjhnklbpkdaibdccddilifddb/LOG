@@ -1,0 +1,22 @@
+2018/11/04-18:37:09.611 1031 Reusing MANIFEST /home/valerio/.config/google-chrome/Default/Local Extension Settings/cfhdojbkjhnklbpkdaibdccddilifddb/MANIFEST-000001
+2018/11/04-18:37:09.611 1031 Recovering log #261
+2018/11/04-18:37:11.486 1031 Level-0 table #264: started
+2018/11/04-18:37:11.871 1031 Level-0 table #264: 3682775 bytes OK
+2018/11/04-18:37:12.117 1031 Delete type=0 #261
+2018/11/04-18:38:08.583 1218 Level-0 table #267: started
+2018/11/04-18:38:08.809 1218 Level-0 table #267: 3682537 bytes OK
+2018/11/04-18:38:08.845 1218 Delete type=0 #265
+2018/11/04-18:38:08.846 1218 Compacting 4@0 + 2@1 files
+2018/11/04-18:38:09.079 1218 Generated table #268@0: 1 keys, 3682537 bytes
+2018/11/04-18:38:09.124 1218 Generated table #269@0: 2 keys, 338 bytes
+2018/11/04-18:38:09.124 1218 Compacted 4@0 + 2@1 files => 3682875 bytes
+2018/11/04-18:38:09.158 1218 compacted to: files[ 0 2 1 0 0 0 0 ]
+2018/11/04-18:38:09.158 1218 Delete type=2 #264
+2018/11/04-18:38:09.159 1218 Delete type=2 #260
+2018/11/04-18:38:09.159 1218 Delete type=2 #258
+2018/11/04-18:38:09.159 1218 Delete type=2 #257
+2018/11/04-18:38:09.159 1218 Delete type=2 #262
+2018/11/04-18:38:09.159 1218 Delete type=2 #267
+2018/11/04-18:52:03.289 1218 Level-0 table #271: started
+2018/11/04-18:52:03.555 1218 Level-0 table #271: 3682777 bytes OK
+2018/11/04-18:52:03.615 1218 Delete type=0 #266

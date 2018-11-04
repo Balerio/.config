@@ -1,0 +1,9 @@
+2018/11/04-10:34:01.158 502 Reusing MANIFEST /home/valerio/.config/google-chrome/Default/IndexedDB/https_drive.google.com_0.indexeddb.leveldb/MANIFEST-000001
+2018/11/04-10:34:01.158 502 Recovering log #27
+2018/11/04-10:34:01.353 502 Reusing old log /home/valerio/.config/google-chrome/Default/IndexedDB/https_drive.google.com_0.indexeddb.leveldb/000027.log 
+2018/11/04-10:34:02.962 1204 Level-0 table #32: started
+2018/11/04-10:34:03.138 1204 Level-0 table #32: 800230 bytes OK
+2018/11/04-10:34:03.207 1204 Delete type=0 #27
+2018/11/04-10:34:03.710 1204 Level-0 table #34: started
+2018/11/04-10:34:03.856 1204 Level-0 table #34: 564055 bytes OK
+2018/11/04-10:34:03.936 1204 Delete type=0 #31

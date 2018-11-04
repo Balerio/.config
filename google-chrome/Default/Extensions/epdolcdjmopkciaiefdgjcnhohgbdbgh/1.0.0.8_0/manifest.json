@@ -1,0 +1,17 @@
+{
+   "app": {
+      "launch": {
+         "web_url": "https://ga.me/space-ark?utm_source=cws&utm_medium=appstore&utm_campaign=Chrome%2BSpace%2BArk"
+      },
+      "urls": [ "*://ga.me/space-ark/" ]
+   },
+   "description": "3D space puzzle adventure!",
+   "icons": {
+      "128": "128.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC6WSrl0S0pxZtXt8Neq7h2WIa/N0Z0JJE7bRPHbyjmSWaud0dpiHrH5U7OZ2VDxo0eNB67J1IMDqAcNJfhodgTmis4t56gKi8hBvLp/X+Y/UR4+3skMKdHn4kfLkjio4IZ9ltJocOJ1Hmo+yzx2oDejGAZ6F+g/iawWt3w30HlQQIDAQAB",
+   "manifest_version": 2,
+   "name": "Space Ark @ ga.me",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0.8"
+}
