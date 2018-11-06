@@ -92,12 +92,15 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# change workspace next / prev
+bindsym $mod+Tab exec rofi -show window
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "1: Main"
+set $ws2 "2: Secondary"
 set $ws3 "3"
-set $ws4 "4"
+set $ws4 "4: "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -178,6 +181,7 @@ for_window [class="^.*"] border pixel 4
 gaps inner 10
 gaps outer 0  
 
+exec ~/.config/scripts/wp.sh
 # set_from_resource $fg i3wm.color7 #f0f0f0
 # set_from_resource $bg i3wm.color2 #f0f0f0
 # set_from_resource $b1 i3wm.color3 #f0f0f0
@@ -197,14 +201,13 @@ set_from_resource $fg-alt       i3wm.color2 #ff0000
 set_from_resource $hl           i3wm.color13 #ff0000
 
 # class                 border      backgr. text indicator      child_border
-client.focused          $fg-alt	    $0000FF     $hl  $00FF00        $FF0000
-client.focused_inactive $fg-alt     $bg     $fg  $fg-alt        $fg-alt
-client.unfocused        $bg-alt	    $bg     $fg  $fg-alt        $fg-alt
+client.focused          #FF00FF		$0000FF     $hl  $00FF00        $FF0000
+client.focused_inactive $000000		$bg     $fg  $fg-alt        $fg-alt
+client.unfocused        $FF0000		$bg     $fg  $fg-alt        $fg-alt
 client.urgent           $fg-alt     $bg     $fg  $fg-alt        $fg-alt
 client.placeholder      $fg-alt     $bg     $fg  $fg-alt        $fg-alt
 
 client.background       $ffffff
 
 exec /usr/bin/feh --bg-scale --no-xinerama ~/.config/wallpaper.jpg
-exec ~/.config/scripts/wp.sh
-exec /usr/bin/compton 
+exec_always /usr/bin/compton 
