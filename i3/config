@@ -174,11 +174,12 @@ bar {
 }
 
 # disable window title
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 5
 
 #new_window 1pixel
 #smart_borders on
-gaps inner 10
+smart_gaps on
+gaps inner 5
 gaps outer 0  
 
 exec ~/.config/scripts/wp.sh
@@ -193,21 +194,30 @@ exec ~/.config/scripts/wp.sh
 # client.urgent           $bg     $bg     $fg  $bg       $bg
 # client.placeholder      $bg     $bg     $fg  $bg       $bg
 
-# client.background       $bg
-set_from_resource $bg           i3wm.color0 #ff0000
-set_from_resource $bg-alt       i3wm.color14 #ff0000
-set_from_resource $fg           i3wm.color15 #ff0000
-set_from_resource $fg-alt       i3wm.color2 #ff0000
+ client.background       $bg
+ set_from_resource $bg           i3wm.color0 #ff0000
+ set_from_resource $bg-alt       i3wm.color14 #ff0000
+ set_from_resource $fg           i3wm.color15 #ff0000
+ set_from_resource $fg-alt       i3wm.color2 #ff0000
 set_from_resource $hl           i3wm.color13 #ff0000
 
 # class                 border      backgr. text indicator      child_border
-client.focused          #FF00FF		$0000FF     $hl  $00FF00        $FF0000
-client.focused_inactive $000000		$bg     $fg  $fg-alt        $fg-alt
-client.unfocused        $FF0000		$bg     $fg  $fg-alt        $fg-alt
+client.focused          #FF00FF		#0000FF     $hl  #00FF00    #FFFFFF
+client.focused_inactive #000000		$bg     $fg  $fg-alt        $fg-alt
+client.unfocused        #FF0000		$bg     $fg  $fg-alt        $fg-alt
 client.urgent           $fg-alt     $bg     $fg  $fg-alt        $fg-alt
 client.placeholder      $fg-alt     $bg     $fg  $fg-alt        $fg-alt
 
 client.background       $ffffff
+
+# class                 border  backgr. text indicator child_border
+#client.focused          #FFFFFF     #000000     #ffffff  #FFFFFF       #FF00FF
+#client.focused_inactive #000000     #000000     #ffffff  #000000       #000000
+#client.unfocused        #000000     #000000     #ffffff  #000000       #000000
+#client.urgent           #000000     #000000     #ffffff  #000000       #000000
+#client.placeholder      #000000     #000000     #ffffff  #000000       #000000
+#
+#client.background       #000000
 
 exec /usr/bin/feh --bg-scale --no-xinerama ~/.config/wallpaper.jpg
 exec_always /usr/bin/compton 

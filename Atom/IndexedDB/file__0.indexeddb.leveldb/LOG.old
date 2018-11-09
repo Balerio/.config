@@ -1,3 +1,6 @@
-2018/11/06-23:27:32.523 3161 Reusing MANIFEST /home/valerio/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
-2018/11/06-23:27:32.524 3161 Recovering log #3
-2018/11/06-23:27:32.670 3161 Reusing old log /home/valerio/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/000003.log 
+2018/11/06-23:28:21.208 3496 Reusing MANIFEST /home/valerio/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2018/11/06-23:28:21.208 3496 Recovering log #3
+2018/11/06-23:28:21.209 3496 Reusing old log /home/valerio/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/000003.log 
+2018/11/07-01:05:57.962 16412 Level-0 table #5: started
+2018/11/07-01:05:58.131 16412 Level-0 table #5: 1607098 bytes OK
+2018/11/07-01:05:58.177 16412 Delete type=0 #3

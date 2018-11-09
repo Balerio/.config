@@ -1,4 +1,4 @@
-alias ls="ls -lah --color=auto"
+# alias ls="ls -lah --color=auto"
 alias wp="~/.config/scripts/wp"
 
 alias v="vim"
