@@ -182,7 +182,7 @@ smart_gaps on
 gaps inner 5
 gaps outer 0  
 
-exec ~/.config/scripts/wp.sh
+# exec ~/.config/scripts/wp.sh
 # set_from_resource $fg i3wm.color7 #f0f0f0
 # set_from_resource $bg i3wm.color2 #f0f0f0
 # set_from_resource $b1 i3wm.color3 #f0f0f0
@@ -219,5 +219,6 @@ client.background       $ffffff
 #
 #client.background       #000000
 
-exec /usr/bin/feh --bg-scale --no-xinerama ~/.config/wallpaper.jpg
+# exec_always killall compton
 exec_always /usr/bin/compton 
+
