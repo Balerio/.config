@@ -1,12 +1,11 @@
 " Change leader key
 let mapleader = ","
 
-set cursorline
 set number relativenumber
 set nocompatible
 filetype plugin on
 
-syntax on
+syntax enable 
 set tabstop=2
 
 " Enable mouse srolling
@@ -52,7 +51,23 @@ set laststatus=2
 set t_Co=256
 
 " dinamic colorschome with pywal
-colorscheme solarized
+colorscheme wal
+
+" Solarized Color Scheme
+" set background=dark
+" colorscheme solarized
+
+" Set Background Transparent
+hi Normal guibg=NONE ctermbg=NONE
+
+" Set Highlight on Current Line
+set cursorline 
+" Clear the background so later can enable only the underline
+highlight clear CursorLine
+" Make cursoline a underline
+highlight CursorLine gui=underline cterm=underline ctermfg=None 
+
+
 
 " change the cursor on mode change
 let &t_SI = "\e[6 q"
@@ -63,4 +78,4 @@ augroup myCmds
 au!
 autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
-" END CURSOR CHANGE
+" END CURSOR CHANGE 
