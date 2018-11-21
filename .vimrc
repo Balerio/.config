@@ -1,6 +1,9 @@
 " Change leader key
 let mapleader = ","
 
+" remove delay when presing ESC EXPERIMENTAL
+set timeoutlen=1000 ttimeoutlen=0
+
 set number relativenumber
 set nocompatible
 filetype plugin on
@@ -20,7 +23,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'dylanaraps/wal.vim'
 
 " bottom bar
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " Solarized theme
 Plug 'altercation/vim-colors-solarized'
@@ -31,12 +34,15 @@ Plug 'tomtom/tcomment_vim'
 Plug 'sickill/vim-pasta'
 
 " file tree 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 map <C-n> :NERDTreeToggle<CR>
 
 " Notes
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" Plug 'vimwiki/vimwiki'
+" let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Surround
+Plug 'tpope/vim-surround'
 
 " Fuzzy File Search
 Plug 'kien/ctrlp.vim'
@@ -46,9 +52,9 @@ call plug#end()
 
 
 " POWERLINE
-set  rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
-set laststatus=2
-set t_Co=256
+" set  rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
+" set laststatus=2
+" set t_Co=256
 
 " dinamic colorschome with pywal
 colorscheme wal
@@ -76,6 +82,6 @@ let &t_EI = "\e[2 q"
 " optional reset cursor on start:
 augroup myCmds
 au!
-autocmd VimEnter * silent !echo -ne "\e[2 q"
+" autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 " END CURSOR CHANGE 

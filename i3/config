@@ -179,7 +179,7 @@ for_window [class="^.*"] border pixel 5
 #new_window 1pixel
 smart_borders on
 smart_gaps on
-gaps inner 15	 
+gaps inner 10
 gaps outer 0  
 
 # Run to just set the wallpaper
@@ -202,6 +202,5 @@ client.placeholder      $fg-alt     $bg     $fg  $fg-alt        $fg-alt
 
 client.background       $ffffff
 
-# exec_always --no-startup-id "sleep 1; killall -q polybar;sleep 10; polybar examplemain; polybar example"
 exec_always --no-startup-id "~/.config/polybar/launch.sh"
 exec_always --no-startup-id "killall -q compton; compton"
