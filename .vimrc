@@ -9,7 +9,22 @@ set nocompatible
 filetype plugin on
 
 syntax enable 
-set tabstop=2
+set tabstop=4
+
+set autoindent                        " maintain indent of current line
+set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
+
+" ignore wildcards (also for ctrlp)
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*
+
+" folding
+if has('folding')
+  if has('windows')
+    set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+  endif
+  set foldmethod=indent               " not as cool as syntax, but faster
+  set foldlevelstart=99               " start unfolded
+endif
 
 " Enable mouse srolling
 set mouse=a
@@ -47,6 +62,9 @@ Plug 'tpope/vim-surround'
 " Fuzzy File Search
 Plug 'kien/ctrlp.vim'
 let g:ctrlp_show_hidden = 1
+
+" Minimap
+Plug 'mipmip/vim-minimap'
 
 call plug#end()
 
