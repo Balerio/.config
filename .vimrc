@@ -14,8 +14,20 @@ set tabstop=4
 set autoindent                        " maintain indent of current line
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
 
+" always keep at least X lines on top/bottom while scrolling
+set scrolloff=10
+
 " ignore wildcards (also for ctrlp)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*
+
+set wildmenu            " visual autocomplete for command menu
+set showmatch           " highlight matching [{()}]
+
+" Searching
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+set ignorecase			" Ignore case when searching.
+set smartcase			" Switch to case sensitive if uppercase letter found
 
 " folding
 if has('folding')
