@@ -87,11 +87,11 @@ call plug#end()
 " set t_Co=256
 
 " dinamic colorschome with pywal
-colorscheme wal
+" colorscheme wal
 
 " Solarized Color Scheme
-" set background=dark
-" colorscheme solarized
+set background=dark
+colorscheme solarized
 
 " Set Background Transparent
 hi Normal guibg=NONE ctermbg=NONE
