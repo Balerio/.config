@@ -1,15 +1,28 @@
 " Change leader key
 let mapleader = ","
 
+" REMAPS
+nnoremap <leader>/ :noh<cr> " Clear Current Selection Highlight
+nnoremap <space> za         " open / close folding
+map <c-S> :w
+imap <c-d> <esc>ddi
+
 " remove delay when presing ESC EXPERIMENTAL
 set timeoutlen=1000 ttimeoutlen=0
 
 set number relativenumber
 set nocompatible
 filetype plugin on
+filetype indent on	" load filetype-specific indent files
 
-syntax enable 
-set tabstop=4
+
+syntax enable
+
+" tabs
+set tabstop=4		" number of visual spaces per TAB
+set softtabstop=4	" number of spaces in tab when editing
+set expandtab		" tabs are spaces
+set shiftwidth=4
 
 set autoindent                        " maintain indent of current line
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
@@ -31,16 +44,18 @@ set smartcase			" Switch to case sensitive if uppercase letter found
 
 " folding
 if has('folding')
-  if has('windows')
-    set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-  endif
-  set foldmethod=indent               " not as cool as syntax, but faster
-  set foldlevelstart=99               " start unfolded
+    if has('windows')
+        set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+    endif
+    set foldmethod=indent               
+    set foldlevelstart=99               " start unfolded
+    set foldignore=                     " remove default ignores es. #
 endif
 
 " Enable mouse srolling
 set mouse=a
 
+" PLUGINS
 call plug#begin('~/.vim/plugged')
 
 " Syntax Highligh
@@ -62,6 +77,11 @@ Plug 'sickill/vim-pasta'
 
 " file tree 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" You Complete Me
+Plug 'Valloric/YouCompleteMe'
+
+"utilsnip ?
 map <C-n> :NERDTreeToggle<CR>
 
 " Notes
@@ -79,6 +99,10 @@ let g:ctrlp_show_hidden = 1
 Plug 'mipmip/vim-minimap'
 
 call plug#end()
+
+
+
+
 
 
 " POWERLINE

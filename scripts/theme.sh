@@ -16,4 +16,4 @@ fi
 
 	 /usr/bin/feh --bg-fill --no-xinerama ~/.config/wallpaper.jpg
 	 /usr/bin/wal -c
-	 /usr/bin/wal --saturate 0.5 -n -i ~/.config/wallpaper.jpg
+	 /usr/bin/wal --saturate 0.2 -n -i ~/.config/wallpaper.jpg
