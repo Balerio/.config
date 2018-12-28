@@ -92,6 +92,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# floating terminal
+# for_window [class="URxvt" instance="floating"] floating enable
+for_window [class="URxvt" instance="floating"] move scratchpad 
+exec_always urxvt -name floating
+bindsym $mod+x exec urxvt -name floating
+bindsym $mod+BackSpace scratchpad show
+
+
 # change workspace next / prev
 bindsym $mod+Tab exec rofi -show window
 
@@ -183,9 +191,9 @@ gaps inner 10
 gaps outer 0  
 
 # Run to just set the wallpaper
-# exec_always ~/.config/scripts/wp.sh
+exec_always ~/.config/scripts/wp.sh
 # Run to Set the Theme
-exec_always ~/.config/scripts/theme.sh
+# exec_always ~/.config/scripts/theme.sh
 
 set_from_resource $bg           i3wm.color0 #ff0000
 set_from_resource $bg-alt       i3wm.color14 #ff0000
