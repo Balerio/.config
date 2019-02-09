@@ -1,0 +1,12 @@
+{
+    "editor.fontSize": 12,
+    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "Solarized Dark",
+    "vim.statusBarColorControl": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+    "git.autofetch": true
+}

@@ -212,3 +212,5 @@ client.background       $ffffff
 
 exec_always --no-startup-id "~/.config/polybar/launch.sh"
 exec_always --no-startup-id "killall -q compton; compton"
+exec --no-startup-id dunst
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &

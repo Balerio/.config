@@ -1,0 +1,37 @@
+[2019-02-04 01:03:09.119] [sharedprocess] [info] main {"machineId":"c4c6a15019671e780e9129586103970e5686d019dd1230557a9c8e55a93f59ed"}
+[2019-02-04 01:03:09.630] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:03:10.302] [sharedprocess] [info] Scanned system extensions: 71
+[2019-02-04 01:03:11.341] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:03:11.357] [sharedprocess] [info] Scanned system extensions: 71
+[2019-02-04 01:03:11.768] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:03:13.695] [sharedprocess] [info] Installing extension: vim
+[2019-02-04 01:03:13.696] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:03:15.446] [sharedprocess] [info] Downloaded extension: vim /tmp/9902902e-355f-43cf-b2ec-08bff471d4a8
+[2019-02-04 01:03:16.830] [sharedprocess] [info] Extracted extension to /home/valerio/.vscode-oss/extensions/.vscodevim.vim-1.0.7: vscodevim.vim-1.0.7
+[2019-02-04 01:03:16.830] [sharedprocess] [info] Renamed to /home/valerio/.vscode-oss/extensions/vscodevim.vim-1.0.7
+[2019-02-04 01:03:16.831] [sharedprocess] [info] Installation completed. vscodevim.vim-1.0.7
+[2019-02-04 01:03:16.932] [sharedprocess] [info] Extensions installed successfully: vscodevim.vim
+[2019-02-04 01:03:49.123] [sharedprocess] [info] Starting to clean up unused language packs.
+[2019-02-04 01:08:11.779] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:13:11.785] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:18:11.790] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:23:11.800] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:28:11.813] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:33:11.823] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:38:11.830] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:43:11.839] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:48:11.852] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:53:11.861] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 01:58:11.872] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:03:11.885] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:08:11.895] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:13:11.905] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:18:11.916] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:23:11.926] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:28:11.938] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:33:11.950] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:38:11.961] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:43:11.973] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:48:11.983] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:53:11.994] [sharedprocess] [info] Scanned user extensions: 1
+[2019-02-04 02:58:12.004] [sharedprocess] [info] Scanned user extensions: 1
