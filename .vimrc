@@ -5,7 +5,6 @@ let mapleader = ","
 nnoremap <leader>/ :noh<cr> " Clear Current Selection Highlight
 nnoremap <space> za         " open / close folding
 map <c-S> :w
-imap <c-d> <esc>ddi
 
 " remove delay when presing ESC EXPERIMENTAL
 set timeoutlen=1000 ttimeoutlen=0
@@ -15,8 +14,14 @@ set nocompatible
 filetype plugin on
 filetype indent on	" load filetype-specific indent files
 
-
+:map <leader>gf :e <cfile><cr> " create file under cursor
 syntax enable
+
+" splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " tabs
 set tabstop=4		" number of visual spaces per TAB
@@ -83,10 +88,12 @@ Plug 'Valloric/YouCompleteMe'
 
 "utilsnip ?
 map <C-n> :NERDTreeToggle<CR>
+map <leader>/ :noh<CR>
 
 " Notes
-" Plug 'vimwiki/vimwiki'
-" let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+nnoremap <leader>r :!pandoc % --to=html5 > %.html
 
 " Surround
 Plug 'tpope/vim-surround'
@@ -108,7 +115,7 @@ call plug#end()
 " POWERLINE
 " set  rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
 " set laststatus=2
-" set t_Co=256
+set t_Co=256
 
 " dinamic colorschome with pywal
 " colorscheme wal

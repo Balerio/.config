@@ -2,11 +2,13 @@
     "telemetry.machineId": "c4c6a15019671e780e9129586103970e5686d019dd1230557a9c8e55a93f59ed",
     "openedPathsList": {
         "workspaces2": [
-            "file:///home/valerio/d/Projects/playground_angular",
             "file:///home/valerio/d/Projects/Keyboards/qmk_firmware/keyboards/nyquist/keymaps/balerio",
+            "file:///home/valerio/d/Projects/playground_angular",
             "file:///home/valerio/d/Projects/Keyboards/qmk_firmware/keyboards/dz60/keymaps/balerio"
         ],
-        "files2": []
+        "files2": [
+            "file:///home/valerio/d/Projects/Keyboards/qmk_firmware/keyboards/nyquist/keymaps/balerio/keymap.c"
+        ]
     },
     "theme": "vs-dark",
     "themeBackground": "#002b36",
@@ -23,10 +25,10 @@
             "backupPath": "/home/valerio/.config/Code - OSS/Backups/5eb8df6ed0d1c3e6461ebdbd62dcfde6",
             "uiState": {
                 "mode": 1,
-                "x": 1680,
-                "y": 0,
-                "width": 1920,
-                "height": 1053
+                "x": 0,
+                "y": 30,
+                "width": 1680,
+                "height": 1023
             }
         }
     }
