@@ -67,13 +67,22 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-syntastic/syntastic'
 
 " dinamic colorscheme with pywal
-Plug 'dylanaraps/wal.vim'
+" Plug 'dylanaraps/wal.vim'
 
 " bottom bar
 Plug 'vim-airline/vim-airline'
 
 " Solarized theme
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+
+" Solarized Color Scheme
+" set background=dark
+" colorscheme solarized
+
+
+" Nord Theme
+Plug 'arcticicestudio/nord-vim'
+
 " Comments
 Plug 'tomtom/tcomment_vim'
 
@@ -108,7 +117,12 @@ Plug 'mipmip/vim-minimap'
 call plug#end()
 
 
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+let g:nord_comment_brightness = 12
+let g:nord_cursor_line_number_background = 1
 
+colorscheme nord
 
 
 
@@ -120,9 +134,6 @@ set t_Co=256
 " dinamic colorschome with pywal
 " colorscheme wal
 
-" Solarized Color Scheme
-set background=dark
-colorscheme solarized
 
 " Set Background Transparent
 hi Normal guibg=NONE ctermbg=NONE
@@ -137,8 +148,24 @@ highlight CursorLine gui=underline cterm=underline ctermfg=None
 
 
 " change the cursor on mode change
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+" let &t_SI = /"\e[6 q"
+" let &t_EI = /"\e[2 q"
+
+" Changing cursor shape per mode
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+if exists('$TMUX')
+    " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[6 q\<Esc>\\"
+    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+else
+    let &t_SI .= "\<Esc>[6 q"
+    let &t_EI .= "\<Esc>[2 q"
+    autocmd VimLeave * silent !echo -ne "\033[0 q"
+endi
 
 " optional reset cursor on start:
 augroup myCmds
@@ -146,3 +173,6 @@ au!
 " autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 " END CURSOR CHANGE 
+
+
+
