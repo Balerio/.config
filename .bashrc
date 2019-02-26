@@ -7,7 +7,7 @@ alias y="yay"
 alias w="curl wttr.in/Pomezia"
 
 alias p="cd ~/d/Projects"
-alias ls="ls -g --color=auto"
+alias ll="ls -g --color=auto"
 # export PATH=$PATH:~/.config/scripts
 
 # remove backgroud colors from ls
@@ -20,5 +20,6 @@ POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
 
+set completion-ignore-case on
 
 PS1='[\u@\h \W]\$ '
