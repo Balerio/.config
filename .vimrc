@@ -15,8 +15,9 @@ set nocompatible
 filetype plugin on
 filetype indent on	" load filetype-specific indent files
 
-
 syntax enable
+
+set path+=**
 
 " tabs
 set tabstop=4		" number of visual spaces per TAB
@@ -55,6 +56,13 @@ endif
 " Enable mouse srolling
 set mouse=a
 
+" Automatically install plugged if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
@@ -85,8 +93,8 @@ Plug 'Valloric/YouCompleteMe'
 map <C-n> :NERDTreeToggle<CR>
 
 " Notes
-" Plug 'vimwiki/vimwiki'
-" let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Surround
 Plug 'tpope/vim-surround'

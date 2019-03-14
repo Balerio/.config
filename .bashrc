@@ -1,3 +1,6 @@
+
+stty -ixon #disable ctrl-s and ctrl-q
+
 # alias ls="ls -lah --color=auto"
 alias wp="~/.config/scripts/wp"
 
@@ -7,7 +10,7 @@ alias y="yay"
 alias w="curl wttr.in/Pomezia"
 
 alias p="cd ~/d/Projects"
-alias ls="ls -g --color=auto"
+alias ll="ls -hNg --color=auto --group-directories-first"
 # export PATH=$PATH:~/.config/scripts
 
 # remove backgroud colors from ls
@@ -20,5 +23,13 @@ POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
 
+# make tab autcomplete case insensitive
+bind "set completion-ignore-case on"
+
 
 PS1='[\u@\h \W]\$ '
+
+if [ $HOSTNAME = "LIT000796" ]; then
+    alias eros="cd /mnt/c/Projects/EROS; ls -hNg --color=auto --group-directories-first"
+
+fi
