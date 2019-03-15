@@ -11,7 +11,8 @@ alias w="curl wttr.in/Pomezia"
 
 alias p="cd ~/d/Projects"
 alias ll="ls -hNg --color=auto --group-directories-first"
-# export PATH=$PATH:~/.config/scripts
+
+export PATH=$PATH:~/.config/scripts
 
 # remove backgroud colors from ls
 #eval "$(dircolors -p | \

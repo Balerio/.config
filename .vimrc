@@ -5,7 +5,6 @@ let mapleader = ","
 nnoremap <leader>/ :noh<cr> " Clear Current Selection Highlight
 nnoremap <space> za         " open / close folding
 map <c-S> :w
-imap <c-d> <esc>ddi
 
 " remove delay when presing ESC EXPERIMENTAL
 set timeoutlen=1000 ttimeoutlen=0
@@ -16,8 +15,15 @@ filetype plugin on
 filetype indent on	" load filetype-specific indent files
 
 syntax enable
-
 set path+=**
+:map <leader>gf :e <cfile><cr> " create file under cursor
+syntax enable
+
+" splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " tabs
 set tabstop=4		" number of visual spaces per TAB
@@ -70,13 +76,22 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-syntastic/syntastic'
 
 " dinamic colorscheme with pywal
-Plug 'dylanaraps/wal.vim'
+" Plug 'dylanaraps/wal.vim'
 
 " bottom bar
 Plug 'vim-airline/vim-airline'
 
 " Solarized theme
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+
+" Solarized Color Scheme
+" set background=dark
+" colorscheme solarized
+
+
+" Nord Theme
+Plug 'arcticicestudio/nord-vim'
+
 " Comments
 Plug 'tomtom/tcomment_vim'
 
@@ -91,10 +106,12 @@ Plug 'Valloric/YouCompleteMe'
 
 "utilsnip ?
 map <C-n> :NERDTreeToggle<CR>
+map <leader>/ :noh<CR>
 
 " Notes
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+nnoremap <leader>r :!pandoc % --to=html5 > %.html
 
 " Surround
 Plug 'tpope/vim-surround'
@@ -109,21 +126,23 @@ Plug 'mipmip/vim-minimap'
 call plug#end()
 
 
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+let g:nord_comment_brightness = 12
+let g:nord_cursor_line_number_background = 1
 
+colorscheme nord
 
 
 
 " POWERLINE
 " set  rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
 " set laststatus=2
-" set t_Co=256
+set t_Co=256
 
 " dinamic colorschome with pywal
 " colorscheme wal
 
-" Solarized Color Scheme
-set background=dark
-colorscheme solarized
 
 " Set Background Transparent
 hi Normal guibg=NONE ctermbg=NONE
@@ -138,8 +157,24 @@ highlight CursorLine gui=underline cterm=underline ctermfg=None
 
 
 " change the cursor on mode change
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+" let &t_SI = /"\e[6 q"
+" let &t_EI = /"\e[2 q"
+
+" Changing cursor shape per mode
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+if exists('$TMUX')
+    " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[6 q\<Esc>\\"
+    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+else
+    let &t_SI .= "\<Esc>[6 q"
+    let &t_EI .= "\<Esc>[2 q"
+    autocmd VimLeave * silent !echo -ne "\033[0 q"
+endi
 
 " optional reset cursor on start:
 augroup myCmds
@@ -147,3 +182,6 @@ au!
 " autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 " END CURSOR CHANGE 
+
+
+

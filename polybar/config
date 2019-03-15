@@ -71,7 +71,7 @@ font-2 = "Wuncon Siji"
 
 modules-left = i3 
 modules-center = date 
-modules-right = filesystem alsa pulseaudio memory cpu temperature powermenu
+modules-right = xkeyboard filesystem alsa pulseaudio memory cpu temperature powermenu
 tray-position = right
 tray-padding = 2
 ;tray-transparent = true
