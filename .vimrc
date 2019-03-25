@@ -110,7 +110,14 @@ map <leader>/ :noh<CR>
 
 " Notes
 Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" let wikilists = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
+if hostname() == 'LIT000796' 
+    " wikilists += [{'path': '/mnt/c/Projects/EROS/', 'syntax': 'markdown', 'ext': '.md'}]
+    let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}, {'path': '/mnt/c/Projects/EROS/wiki' }]   
+else 
+    let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
+endif
+" let g:vimwiki_list = wikilists 
 nnoremap <leader>r :!pandoc % --to=html5 > %.html
 
 " Surround
@@ -133,8 +140,6 @@ let g:nord_cursor_line_number_background = 1
 
 colorscheme nord
 
-
-
 " POWERLINE
 " set  rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
 " set laststatus=2
@@ -145,7 +150,7 @@ set t_Co=256
 
 
 " Set Background Transparent
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Set Highlight on Current Line
 set cursorline 
@@ -155,6 +160,8 @@ highlight clear CursorLine
 highlight CursorLine gui=underline cterm=underline ctermfg=None 
 
 
+" Restore Visual highlight  
+highlight Visual cterm=reverse ctermbg=NONE
 
 " change the cursor on mode change
 " let &t_SI = /"\e[6 q"
@@ -173,7 +180,7 @@ if exists('$TMUX')
 else
     let &t_SI .= "\<Esc>[6 q"
     let &t_EI .= "\<Esc>[2 q"
-    autocmd VimLeave * silent !echo -ne "\033[0 q"
+"    autocmd VimLeave * silent !echo -ne "\033[0 q"
 endi
 
 " optional reset cursor on start:
