@@ -1,9 +1,9 @@
 " Change leader key
-let mapleader = ","
+let mapleader = " "
 
 " REMAPS
 nnoremap <leader>/ :noh<cr> " Clear Current Selection Highlight
-nnoremap <space> za         " open / close folding
+nnoremap , za         " open / close folding
 map <c-S> :w
 
 " remove delay when presing ESC EXPERIMENTAL
@@ -50,14 +50,14 @@ set ignorecase			" Ignore case when searching.
 set smartcase			" Switch to case sensitive if uppercase letter found
 
 " folding
-if has('folding')
-    if has('windows')
-        set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-    endif
-    set foldmethod=indent               
-    set foldlevelstart=99               " start unfolded
-    set foldignore=                     " remove default ignores es. #
-endif
+" if has('folding')
+"     if has('windows')
+"         set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+"     endif
+"     set foldmethod=indent               
+"     set foldlevelstart=99               " start unfolded
+"     set foldignore=                     " remove default ignores es. #
+" endif
 
 " Enable mouse srolling
 set mouse=a
@@ -104,12 +104,15 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " You Complete Me
 Plug 'Valloric/YouCompleteMe'
 
-"utilsnip ?
+" MARKDOWN
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
 map <C-n> :NERDTreeToggle<CR>
 map <leader>/ :noh<CR>
 
 " Notes
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 " let wikilists = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
 if hostname() == 'LIT000796' 
     " wikilists += [{'path': '/mnt/c/Projects/EROS/', 'syntax': 'markdown', 'ext': '.md'}]
@@ -128,18 +131,28 @@ Plug 'kien/ctrlp.vim'
 let g:ctrlp_show_hidden = 1
 
 " Minimap
-Plug 'mipmip/vim-minimap'
+" Plug 'mipmip/vim-minimap'
+
+" TODO LISTS
+Plug 'rlue/vim-getting-things-down'
+
+" vim-orgmode
+Plug 'jceb/vim-orgmode'
+
+
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
 
 let g:nord_underline = 1
 let g:nord_italic_comments = 1
-let g:nord_comment_brightness = 12
+" let g:nord_comment_brightness = 12
 let g:nord_cursor_line_number_background = 1
 
-colorscheme nord
-
+" colorscheme nord
+colorscheme gruvbox
+set background=dark
 " POWERLINE
 " set  rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
 " set laststatus=2
@@ -155,9 +168,9 @@ set t_Co=256
 " Set Highlight on Current Line
 set cursorline 
 " Clear the background so later can enable only the underline
-highlight clear CursorLine
+" highlight clear CursorLine
 " Make cursoline a underline
-highlight CursorLine gui=underline cterm=underline ctermfg=None 
+" highlight CursorLine gui=underline cterm=underline ctermfg=None 
 
 
 " Restore Visual highlight  
@@ -191,4 +204,11 @@ augroup END
 " END CURSOR CHANGE 
 
 
+" Default fold level for new Markdown buffers (see `:h 'foldlevel'`).
+let g:gtdown_default_fold_level = 2
 
+" Should multi-line list items collapse too, or only headings?
+let g:gtdown_fold_list_items = 1
+
+" Display progress bar for folded headings/list items?
+let g:gtdown_show_progress = 1
