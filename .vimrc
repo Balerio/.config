@@ -50,14 +50,14 @@ set ignorecase			" Ignore case when searching.
 set smartcase			" Switch to case sensitive if uppercase letter found
 
 " folding
-" if has('folding')
-"     if has('windows')
-"         set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-"     endif
-"     set foldmethod=indent               
-"     set foldlevelstart=99               " start unfolded
-"     set foldignore=                     " remove default ignores es. #
-" endif
+if has('folding')
+    if has('windows')
+        set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+    endif
+     set foldmethod=indent               
+     set foldlevelstart=99               " start unfolded
+     set foldignore=                     " remove default ignores es. #
+endif
 
 " Enable mouse srolling
 set mouse=a

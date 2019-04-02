@@ -1,6 +1,9 @@
 
 stty -ixon #disable ctrl-s and ctrl-q
-
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b ~/.config/.mydircolors`"
+fi
 # alias ls="ls -lah --color=auto"
 alias wp="~/.config/scripts/wp"
 
@@ -11,6 +14,7 @@ alias w="curl wttr.in/Pomezia"
 
 alias p="cd ~/d/Projects"
 alias ll="ls -hNg --color=auto --group-directories-first"
+alias ls='ls --color=auto'
 
 export PATH=$PATH:~/.config/scripts
 
