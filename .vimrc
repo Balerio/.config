@@ -6,8 +6,13 @@ nnoremap <leader>/ :noh<cr> " Clear Current Selection Highlight
 nnoremap , za         " open / close folding
 map <c-S> :w
 
-" remove delay when presing ESC EXPERIMENTAL
-set timeoutlen=1000 ttimeoutlen=0
+" split movements
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set timeoutlen=1000 ttimeoutlen=0 " remove delay when presing ESC EXPERIMENTAL
 
 set number relativenumber
 set nocompatible
@@ -19,11 +24,6 @@ set path+=**
 :map <leader>gf :e <cfile><cr> " create file under cursor
 syntax enable
 
-" splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " tabs
 set tabstop=4		" number of visual spaces per TAB
@@ -34,8 +34,7 @@ set shiftwidth=4
 set autoindent                        " maintain indent of current line
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
 
-" always keep at least X lines on top/bottom while scrolling
-set scrolloff=10
+set scrolloff=10 " always keep at least X lines on top/bottom while scrolling
 
 " ignore wildcards (also for ctrlp)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*
@@ -57,10 +56,12 @@ if has('folding')
      set foldmethod=indent               
      set foldlevelstart=99               " start unfolded
      set foldignore=                     " remove default ignores es. #
+     let g:gtdown_default_fold_level = 2  " Default fold level for new Markdown buffers (see `:h 'foldlevel'`).
+     let g:gtdown_fold_list_items = 1  " Should multi-line list items collapse too, or only headings?
+     let g:gtdown_show_progress = 1  " Display progress bar for folded headings/list items?
 endif
 
-" Enable mouse srolling
-set mouse=a
+set mouse=a  " Enable mouse srolling
 
 " Automatically install plugged if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -71,41 +72,16 @@ endif
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
+Plug 'vim-syntastic/syntastic' " Syntax Highligh
+Plug 'vim-airline/vim-airline'  " bottom bar
+Plug 'tomtom/tcomment_vim'  " Comments
+Plug 'sickill/vim-pasta'  " Fix Indentation
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file tree 
 
-" Syntax Highligh
-Plug 'vim-syntastic/syntastic'
+Plug 'Valloric/YouCompleteMe'  " You Complete Me
 
-" dinamic colorscheme with pywal
-" Plug 'dylanaraps/wal.vim'
-
-" bottom bar
-Plug 'vim-airline/vim-airline'
-
-" Solarized theme
-" Plug 'altercation/vim-colors-solarized'
-
-" Solarized Color Scheme
-" set background=dark
-" colorscheme solarized
-
-
-" Nord Theme
-Plug 'arcticicestudio/nord-vim'
-
-" Comments
-Plug 'tomtom/tcomment_vim'
-
-" Fix Indentation
-Plug 'sickill/vim-pasta'
-
-" file tree 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
-" You Complete Me
-Plug 'Valloric/YouCompleteMe'
-
-" MARKDOWN
-Plug 'godlygeek/tabular'
+Plug 'arcticicestudio/nord-vim'  " Nord Theme
+Plug 'godlygeek/tabular'  " MARKDOWN
 Plug 'plasticboy/vim-markdown'
 
 map <C-n> :NERDTreeToggle<CR>
@@ -121,36 +97,20 @@ else
     let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
 endif
 " let g:vimwiki_list = wikilists 
-nnoremap <leader>r :!pandoc % --to=html5 > %.html
+nnoremap <silent> <leader>rh :!pandoc % --to=html5 > %.html && explorer.exe %.html <cr>
+nnoremap <silent> <leader>rp :!pandoc % -t beamer > %.pdf && explorer.exe %.pdf <cr>
+nnoremap <silent> <leader>rd :!pandoc % --to=docx > %.docx && explorer.exe %.docx <cr>
 
-" Surround
-Plug 'tpope/vim-surround'
-
-" Fuzzy File Search
-Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'  " Surround
+Plug 'kien/ctrlp.vim'  " Fuzzy File Search
 let g:ctrlp_show_hidden = 1
 
-" Minimap
-" Plug 'mipmip/vim-minimap'
-
-" TODO LISTS
-Plug 'rlue/vim-getting-things-down'
-
-" vim-orgmode
-Plug 'jceb/vim-orgmode'
-
-
-Plug 'morhetz/gruvbox'
+Plug 'rlue/vim-getting-things-down'  " TODO LISTS
+Plug 'morhetz/gruvbox' " gruvbox color theme
 
 call plug#end()
 
 
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
-" let g:nord_comment_brightness = 12
-let g:nord_cursor_line_number_background = 1
-
-" colorscheme nord
 colorscheme gruvbox
 set background=dark
 " POWERLINE
@@ -158,33 +118,15 @@ set background=dark
 " set laststatus=2
 set t_Co=256
 
-" dinamic colorschome with pywal
-" colorscheme wal
+
+set cursorline   " Set Highlight on Current Line
+" highlight clear CursorLine  " Clear the background so later can enable only the underline
+" highlight CursorLine gui=underline cterm=underline ctermfg=None   " Make cursoline a underline
 
 
-" Set Background Transparent
-" hi Normal guibg=NONE ctermbg=NONE
-
-" Set Highlight on Current Line
-set cursorline 
-" Clear the background so later can enable only the underline
-" highlight clear CursorLine
-" Make cursoline a underline
-" highlight CursorLine gui=underline cterm=underline ctermfg=None 
-
-
-" Restore Visual highlight  
-highlight Visual cterm=reverse ctermbg=NONE
+highlight Visual cterm=reverse ctermbg=NONE  " Restore Visual highlight  
 
 " change the cursor on mode change
-" let &t_SI = /"\e[6 q"
-" let &t_EI = /"\e[2 q"
-
-" Changing cursor shape per mode
-" 1 or 0 -> blinking block
-" 2 -> solid block
-" 3 -> blinking underscore
-" 4 -> solid underscore
 if exists('$TMUX')
     " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
     let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[6 q\<Esc>\\"
@@ -204,11 +146,3 @@ augroup END
 " END CURSOR CHANGE 
 
 
-" Default fold level for new Markdown buffers (see `:h 'foldlevel'`).
-let g:gtdown_default_fold_level = 2
-
-" Should multi-line list items collapse too, or only headings?
-let g:gtdown_fold_list_items = 1
-
-" Display progress bar for folded headings/list items?
-let g:gtdown_show_progress = 1

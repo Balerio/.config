@@ -12,11 +12,20 @@ alias r="ranger"
 alias y="yay"
 alias w="curl wttr.in/Pomezia"
 
+alias vrc="vim ~/.config/.vimrc"
+alias start="explorer.exe"
+
 alias p="cd ~/d/Projects"
 alias ll="ls -hNg --color=auto --group-directories-first"
 alias ls='ls --color=auto'
 
 export PATH=$PATH:~/.config/scripts
+
+function cs () {
+    cd "$@" && ll
+}
+
+alias cd="cs"
 
 # remove backgroud colors from ls
 #eval "$(dircolors -p | \
@@ -36,5 +45,8 @@ PS1='[\u@\h \W]\$ '
 
 if [ $HOSTNAME = "LIT000796" ]; then
     alias eros="cd /mnt/c/Projects/EROS; clear; ls -hNg --color=auto --group-directories-first"
-
+    echo "TODO"
+    echo "----"
+    cat ~/todo.txt
+    echo "----"
 fi
