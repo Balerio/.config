@@ -13,6 +13,7 @@ alias y="yay"
 alias w="curl wttr.in/Pomezia"
 
 alias vrc="vim ~/.config/.vimrc"
+alias rb="source ~/.config/.bashrc"
 alias start="explorer.exe"
 
 alias p="cd ~/d/Projects"
@@ -44,9 +45,12 @@ bind "set completion-ignore-case on"
 PS1='[\u@\h \W]\$ '
 
 if [ $HOSTNAME = "LIT000796" ]; then
-    alias eros="cd /mnt/c/Projects/EROS; clear; ls -hNg --color=auto --group-directories-first"
+    alias eros="cd /mnt/c/Projects/EROS"
     echo "TODO"
     echo "----"
     cat ~/todo.txt
-    echo "----"
+fi
+
+if [ $HOSTNAME = "Vader" ]; then
+    alias p="cd /mnt/d/Projects"
 fi
