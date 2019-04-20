@@ -21,3 +21,11 @@ vlc
 wal
 xfce4
 pulse
+evolution
+gnome-initial-setup-done
+gtk-3.0/bookmarks
+nautilus/
+transmission-daemon/
+user-dirs.dirs
+user-dirs.locale
+
