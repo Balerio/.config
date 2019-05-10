@@ -24,6 +24,10 @@ set path+=**
 :map <leader>gf :e <cfile><cr> " create file under cursor
 syntax enable
 
+" copy (write) highlighted text to .vimbuffer
+vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
+" paste from buffer
+" map <C-v> :r ~/.vimbuffer<CR>
 
 " tabs
 set tabstop=4		" number of visual spaces per TAB
@@ -144,5 +148,3 @@ au!
 " autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 " END CURSOR CHANGE 
-
-
