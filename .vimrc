@@ -84,11 +84,11 @@ Plug 'arcticicestudio/nord-vim'  " Nord Theme
 Plug 'godlygeek/tabular'  " MARKDOWN
 Plug 'plasticboy/vim-markdown'
 
+Plug 'vimwiki/vimwiki' " VimWiki notes
+
 map <C-n> :NERDTreeToggle<CR>
 map <leader>/ :noh<CR>
 
-" Notes
-" Plug 'vimwiki/vimwiki'
 " let wikilists = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
 if hostname() == 'LIT000796' 
     " wikilists += [{'path': '/mnt/c/Projects/EROS/', 'syntax': 'markdown', 'ext': '.md'}]
