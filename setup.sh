@@ -7,3 +7,10 @@ grep -qxF 'source ~/.config/.bashrc' ~/.bashrc || echo 'source ~/.config/.bashrc
 touch ~/.vimrc
 grep -qxF 'source ~/.config/.vimrc' ~/.vimrc || echo 'source ~/.config/.vimrc' >> ~/.vimrc
 
+sudo pacman -Syyu
+sudo pacman -S --noconfirm vim tmux git python go
+
+git clone https://aur.archlinux.org/yay.git ~/.yayinstall
+cd ~/.yayinstall
+makepkg -si
+rm -R ~/.yayinstall
