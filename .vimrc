@@ -11,6 +11,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" open splits on the bottom
+set splitbelow
 
 set timeoutlen=1000 ttimeoutlen=0 " remove delay when presing ESC EXPERIMENTAL
 

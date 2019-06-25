@@ -42,7 +42,8 @@ alias cd="cs"
 bind "set completion-ignore-case on"
 
 
-PS1='[\u@\h \W]\$ '
+# PS1='[ \u@\h ] \w\n$ '
+export PS1="[ \[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] ] \[\e[36m\]\w\[\e[m\] > "
 
 if [ $HOSTNAME = "LIT000796" ]; then
     alias eros="cd /mnt/c/Projects/EROS"
