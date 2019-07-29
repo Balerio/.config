@@ -29,14 +29,6 @@ set hlsearch            " highlight matches
 set ignorecase			" Ignore case when searching.
 set smartcase			" Switch to case sensitive if uppercase letter found
 
-" folding
-if has('folding')
-  if has('windows')
-    set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-  endif
-  set foldmethod=indent               " not as cool as syntax, but faster
-  set foldlevelstart=99               " start unfolded
-endif
 
 " Enable mouse srolling
 set mouse=a
@@ -60,13 +52,16 @@ Plug 'tomtom/tcomment_vim'
 " Fix Indentation
 Plug 'sickill/vim-pasta'
 
+" evervim - edit EverNote
+Plug 'vim-scripts/evervim'
+
 " file tree 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 map <C-n> :NERDTreeToggle<CR>
 
 " Notes
-" Plug 'vimwiki/vimwiki'
-" let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},{'path': '/c/Projects/EROS/NOTES/', 'syntax': 'markdown', 'ext': '.md', 'path_html': '/c/Projects/EROS/NOTES/HTML'},]
 
 " Surround
 Plug 'tpope/vim-surround'
