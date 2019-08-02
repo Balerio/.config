@@ -3,8 +3,8 @@ let mapleader = " "
 
 " REMAPS
 nnoremap <leader>/ :noh<cr> " Clear Current Selection Highlight
-nnoremap , za         " open / close folding
-map <c-S> :w
+nnoremap , za               " open / close folding
+map <c-S> :w                " save with CTRL-S
 
 " split movements
 nnoremap <C-J> <C-W><C-J>
@@ -18,13 +18,16 @@ set timeoutlen=1000 ttimeoutlen=0 " remove delay when presing ESC EXPERIMENTAL
 
 set number relativenumber
 set nocompatible
+set ttyfast
+set lazyredraw
+
 filetype plugin on
 filetype indent on	" load filetype-specific indent files
 
-syntax enable
+syntax off
 set path+=**
 :map <leader>gf :e <cfile><cr> " create file under cursor
-syntax enable
+"syntax enable
 
 " copy (write) highlighted text to .vimbuffer
 vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
@@ -32,10 +35,10 @@ vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR
 " map <C-v> :r ~/.vimbuffer<CR>
 
 " tabs
-set tabstop=4		" number of visual spaces per TAB
-set softtabstop=4	" number of spaces in tab when editing
+set tabstop=2		" number of visual spaces per TAB
+set softtabstop=2	" number of spaces in tab when editing
 set expandtab		" tabs are spaces
-set shiftwidth=4
+set shiftwidth=2
 
 set autoindent                        " maintain indent of current line
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
@@ -55,11 +58,11 @@ set ignorecase			" Ignore case when searching.
 set smartcase			" Switch to case sensitive if uppercase letter found
 
 " folding
-if has('folding')
+ if has('folding')
     if has('windows')
         set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
     endif
-     set foldmethod=indent               
+     set foldmethod=syntax               
      set foldlevelstart=99               " start unfolded
      set foldignore=                     " remove default ignores es. #
      let g:gtdown_default_fold_level = 2  " Default fold level for new Markdown buffers (see `:h 'foldlevel'`).
@@ -78,7 +81,7 @@ endif
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
-Plug 'vim-syntastic/syntastic' " Syntax Highligh
+"Plug 'vim-syntastic/syntastic' " Syntax Highligh
 Plug 'vim-airline/vim-airline'  " bottom bar
 Plug 'tomtom/tcomment_vim'  " Comments
 Plug 'sickill/vim-pasta'  " Fix Indentation
@@ -86,23 +89,20 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file tree
 
 Plug 'Valloric/YouCompleteMe'  " You Complete Me
 
-Plug 'arcticicestudio/nord-vim'  " Nord Theme
 Plug 'godlygeek/tabular'  " MARKDOWN
 Plug 'plasticboy/vim-markdown'
 
-Plug 'vimwiki/vimwiki' " VimWiki notes
+" Plug 'vimwiki/vimwiki' " VimWiki notes
 
 map <C-n> :NERDTreeToggle<CR>
 map <leader>/ :noh<CR>
 
-" let wikilists = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
 if hostname() == 'LIT000796' 
-    " wikilists += [{'path': '/mnt/c/Projects/EROS/', 'syntax': 'markdown', 'ext': '.md'}]
     let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}, {'path': '/mnt/c/Projects/EROS/wiki' }]   
 else 
     let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
 endif
-" let g:vimwiki_list = wikilists 
+
 nnoremap <silent> <leader>rh :!pandoc % --to=html5 > %.html && explorer.exe %.html <cr>
 nnoremap <silent> <leader>rp :!pandoc % -t beamer > %.pdf && explorer.exe %.pdf <cr>
 nnoremap <silent> <leader>rd :!pandoc % --to=docx > %.docx && explorer.exe %.docx <cr>
@@ -113,24 +113,18 @@ let g:ctrlp_show_hidden = 1
 
 Plug 'rlue/vim-getting-things-down'  " TODO LISTS
 Plug 'morhetz/gruvbox' " gruvbox color theme
+" Plug 'arcticicestudio/nord-vim'  " Nord Theme
+
+" Plug 'jceb/vim-orgmode'
 
 call plug#end()
 
 
 colorscheme gruvbox
 set background=dark
-" POWERLINE
-" set  rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
-" set laststatus=2
 set t_Co=256
 
-
-set cursorline   " Set Highlight on Current Line
-" highlight clear CursorLine  " Clear the background so later can enable only the underline
-" highlight CursorLine gui=underline cterm=underline ctermfg=None   " Make cursoline a underline
-
-
-highlight Visual cterm=reverse ctermbg=NONE  " Restore Visual highlight  
+" set cursorline   " Set Highlight on Current Line
 
 " change the cursor on mode change
 if exists('$TMUX')
@@ -145,8 +139,8 @@ else
 endi
 
 " optional reset cursor on start:
-augroup myCmds
-au!
+"augroup myCmds
+"au!
 " autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
+"augroup END
 " END CURSOR CHANGE 

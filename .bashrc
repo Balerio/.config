@@ -43,13 +43,10 @@ bind "set completion-ignore-case on"
 
 
 # PS1='[ \u@\h ] \w\n$ '
-export PS1="[ \[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] ] \[\e[36m\]\w\[\e[m\] > "
+export PS1=$'[ \[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] ] \[\e[36m\]\w\[\e[m\] \u03bb '
 
 if [ $HOSTNAME = "LIT000796" ]; then
     alias eros="cd /mnt/c/Projects/EROS"
-    echo "TODO"
-    echo "----"
-    cat ~/todo.txt
 fi
 
 if [ $HOSTNAME = "Vader" ]; then
