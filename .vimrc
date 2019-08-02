@@ -94,6 +94,8 @@ Plug 'plasticboy/vim-markdown'
 
 " Plug 'vimwiki/vimwiki' " VimWiki notes
 
+" file tree 
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 map <C-n> :NERDTreeToggle<CR>
 map <leader>/ :noh<CR>
 
@@ -102,6 +104,10 @@ if hostname() == 'LIT000796'
 else 
     let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
 endif
+=======
+" Notes
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},{'path': '/c/Projects/EROS/NOTES/', 'syntax': 'markdown', 'ext': '.md', 'path_html': '/c/Projects/EROS/NOTES/HTML'},]
 
 nnoremap <silent> <leader>rh :!pandoc % --to=html5 > %.html && explorer.exe %.html <cr>
 nnoremap <silent> <leader>rp :!pandoc % -t beamer > %.pdf && explorer.exe %.pdf <cr>
