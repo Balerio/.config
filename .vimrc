@@ -104,7 +104,7 @@ if hostname() == 'LIT000796'
 else 
     let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
 endif
-=======
+
 " Notes
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},{'path': '/c/Projects/EROS/NOTES/', 'syntax': 'markdown', 'ext': '.md', 'path_html': '/c/Projects/EROS/NOTES/HTML'},]
