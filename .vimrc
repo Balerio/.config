@@ -27,17 +27,12 @@ filetype indent on	" load filetype-specific indent files
 syntax off
 set path+=**
 :map <leader>gf :e <cfile><cr> " create file under cursor
-"syntax enable
-
-" copy (write) highlighted text to .vimbuffer
-vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
-" paste from buffer
-" map <C-v> :r ~/.vimbuffer<CR>
+syntax enable
 
 " tabs
-set tabstop=2		" number of visual spaces per TAB
-set softtabstop=2	" number of spaces in tab when editing
-set expandtab		" tabs are spaces
+set tabstop=2		    " number of visual spaces per TAB
+set softtabstop=2	  " number of spaces in tab when editing
+set expandtab		    " tabs are spaces
 set shiftwidth=2
 
 set autoindent                        " maintain indent of current line
@@ -54,11 +49,11 @@ set showmatch           " highlight matching [{()}]
 " Searching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
-set ignorecase			" Ignore case when searching.
-set smartcase			" Switch to case sensitive if uppercase letter found
+set ignorecase			    " Ignore case when searching.
+set smartcase			      " Switch to case sensitive if uppercase letter found
 
 " folding
- if has('folding')
+if has('folding')
     if has('windows')
         set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
     endif
@@ -81,16 +76,16 @@ endif
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
-"Plug 'vim-syntastic/syntastic' " Syntax Highligh
+Plug 'vim-syntastic/syntastic' " Syntax Highligh
 Plug 'vim-airline/vim-airline'  " bottom bar
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tomtom/tcomment_vim'  " Comments
-Plug 'sickill/vim-pasta'  " Fix Indentation
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }  " file tree 
+"Plug 'sickill/vim-pasta'  " Fix Indentation
 
-Plug 'Valloric/YouCompleteMe'  " You Complete Me
+"Plug 'Valloric/YouCompleteMe'  " You Complete Me
 
-Plug 'godlygeek/tabular'  " MARKDOWN
-Plug 'plasticboy/vim-markdown'
+"Plug 'godlygeek/tabular'  " MARKDOWN
+"Plug 'plasticboy/vim-markdown'
 
 " Plug 'vimwiki/vimwiki' " VimWiki notes
 
@@ -99,34 +94,23 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 map <C-n> :NERDTreeToggle<CR>
 map <leader>/ :noh<CR>
 
-if hostname() == 'LIT000796' 
-    let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}, {'path': '/mnt/c/Projects/EROS/wiki' }]   
-else 
-    let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]   
-endif
-
-" Notes
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},{'path': '/c/Projects/EROS/NOTES/', 'syntax': 'markdown', 'ext': '.md', 'path_html': '/c/Projects/EROS/NOTES/HTML'},]
-
 nnoremap <silent> <leader>rh :!pandoc % --to=html5 > %.html && explorer.exe %.html <cr>
 nnoremap <silent> <leader>rp :!pandoc % -t beamer > %.pdf && explorer.exe %.pdf <cr>
 nnoremap <silent> <leader>rd :!pandoc % --to=docx > %.docx && explorer.exe %.docx <cr>
 
-Plug 'tpope/vim-surround'  " Surround
+" Plug 'tpope/vim-surround'  " Surround
 Plug 'kien/ctrlp.vim'  " Fuzzy File Search
 let g:ctrlp_show_hidden = 1
 
 Plug 'rlue/vim-getting-things-down'  " TODO LISTS
 Plug 'morhetz/gruvbox' " gruvbox color theme
-" Plug 'arcticicestudio/nord-vim'  " Nord Theme
-
-" Plug 'jceb/vim-orgmode'
+Plug 'arcticicestudio/nord-vim'  " Nord Theme
 
 call plug#end()
 
 
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme nord
 set background=dark
 set t_Co=256
 
@@ -144,9 +128,7 @@ else
 "    autocmd VimLeave * silent !echo -ne "\033[0 q"
 endi
 
-" optional reset cursor on start:
-"augroup myCmds
-"au!
-" autocmd VimEnter * silent !echo -ne "\e[2 q"
-"augroup END
-" END CURSOR CHANGE 
+" Improve Performance
+"
+" NO IDEA WHAT IT DOES BUT AT FIRST SEEMS TO WORK
+set regexpengine=1
