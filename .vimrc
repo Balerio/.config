@@ -30,8 +30,8 @@ set path+=**
 syntax enable
 
 " tabs
-set tabstop=2		    " number of visual spaces per TAB
-set softtabstop=2	  " number of spaces in tab when editing
+set tabstop=4		    " number of visual spaces per TAB
+set softtabstop=4	  " number of spaces in tab when editing
 set expandtab		    " tabs are spaces
 set shiftwidth=2
 
@@ -57,7 +57,7 @@ if has('folding')
     if has('windows')
         set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
     endif
-     set foldmethod=syntax               
+     set foldmethod=indent
      set foldlevelstart=99               " start unfolded
      set foldignore=                     " remove default ignores es. #
      let g:gtdown_default_fold_level = 2  " Default fold level for new Markdown buffers (see `:h 'foldlevel'`).
@@ -82,7 +82,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tomtom/tcomment_vim'  " Comments
 "Plug 'sickill/vim-pasta'  " Fix Indentation
 
-"Plug 'Valloric/YouCompleteMe'  " You Complete Me
+Plug 'Valloric/YouCompleteMe'  " You Complete Me
 
 "Plug 'godlygeek/tabular'  " MARKDOWN
 "Plug 'plasticboy/vim-markdown'

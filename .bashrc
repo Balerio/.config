@@ -16,7 +16,7 @@ alias vrc="vim ~/.config/.vimrc"
 alias rb="source ~/.config/.bashrc"
 alias start="explorer.exe"
 
-alias p="cd ~/d/Projects"
+alias p="cd /mnt/d/Projects"
 alias ll="ls -hNg --color=auto --group-directories-first"
 alias ls='ls --color=auto'
 
