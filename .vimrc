@@ -106,6 +106,12 @@ Plug 'rlue/vim-getting-things-down'  " TODO LISTS
 Plug 'morhetz/gruvbox' " gruvbox color theme
 Plug 'arcticicestudio/nord-vim'  " Nord Theme
 
+Plug 'mattn/emmet-vim'
+let g:user_emmet_leader_key=','
+
+" Table Mode
+Plug 'dhruvasagar/vim-table-mode'
+
 call plug#end()
 
 
@@ -119,11 +125,11 @@ set t_Co=256
 " change the cursor on mode change
 if exists('$TMUX')
     " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
-    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[6 q\<Esc>\\"
+    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
     let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
     autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
 else
-    let &t_SI .= "\<Esc>[6 q"
+    let &t_SI .= "\<Esc>[5 q"
     let &t_EI .= "\<Esc>[2 q"
 "    autocmd VimLeave * silent !echo -ne "\033[0 q"
 endi
