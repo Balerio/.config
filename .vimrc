@@ -14,6 +14,9 @@ nnoremap <C-H> <C-W><C-H>
 " open splits on the bottom
 set splitbelow
 
+
+
+
 set timeoutlen=1000 ttimeoutlen=0 " remove delay when presing ESC EXPERIMENTAL
 
 set number relativenumber
@@ -31,7 +34,7 @@ syntax enable
 
 " tabs
 set tabstop=4		    " number of visual spaces per TAB
-set softtabstop=4	  " number of spaces in tab when editing
+set softtabstop=4       " number of spaces in tab when editing
 set expandtab		    " tabs are spaces
 set shiftwidth=2
 
@@ -76,6 +79,7 @@ endif
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
+
 Plug 'vim-syntastic/syntastic' " Syntax Highligh
 Plug 'vim-airline/vim-airline'  " bottom bar
 Plug 'vim-airline/vim-airline-themes'
@@ -105,6 +109,7 @@ let g:ctrlp_show_hidden = 1
 Plug 'rlue/vim-getting-things-down'  " TODO LISTS
 Plug 'morhetz/gruvbox' " gruvbox color theme
 Plug 'arcticicestudio/nord-vim'  " Nord Theme
+Plug 'jnurmine/Zenburn' " ZenBurn Theme
 
 Plug 'mattn/emmet-vim'
 let g:user_emmet_leader_key=','
@@ -112,13 +117,23 @@ let g:user_emmet_leader_key=','
 " Table Mode
 Plug 'dhruvasagar/vim-table-mode'
 
+" ORG MODE
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
+
+
 call plug#end()
 
 
-" colorscheme gruvbox
-colorscheme nord
+colorscheme gruvbox
+" colorscheme nord
+" colorscheme zenburn
 set background=dark
 set t_Co=256
+
+" Fix Display Colors
+set term=screen-256color
+set t_ut=
 
 " set cursorline   " Set Highlight on Current Line
 
@@ -138,3 +153,6 @@ endi
 "
 " NO IDEA WHAT IT DOES BUT AT FIRST SEEMS TO WORK
 set regexpengine=1
+
+
+
