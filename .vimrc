@@ -1,7 +1,7 @@
 " Change leader key
 let mapleader = " "
 
-" REMAPS
+"# REMAPS
 nnoremap <leader>/ :noh<cr> " Clear Current Selection Highlight
 nnoremap , za               " open / close folding
 map <c-S> :w                " save with CTRL-S
@@ -14,11 +14,9 @@ nnoremap <C-H> <C-W><C-H>
 " open splits on the bottom
 set splitbelow
 
-
-
-
 set timeoutlen=1000 ttimeoutlen=0 " remove delay when presing ESC EXPERIMENTAL
 
+"# Appearance
 set number relativenumber
 set nocompatible
 set ttyfast
@@ -70,56 +68,56 @@ endif
 
 set mouse=a  " Enable mouse srolling
 
-" Automatically install plugged if not installed
+"" Automatically install plugged if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" PLUGINS
+"" PLUGINS
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-syntastic/syntastic' " Syntax Highligh
-Plug 'vim-airline/vim-airline'  " bottom bar
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tomtom/tcomment_vim'  " Comments
-"Plug 'sickill/vim-pasta'  " Fix Indentation
+  Plug 'vim-syntastic/syntastic' " Syntax Highligh
+  Plug 'vim-airline/vim-airline'  " bottom bar
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'tomtom/tcomment_vim'  " Comments
+  "Plug 'sickill/vim-pasta'  " Fix Indentation
 
-Plug 'Valloric/YouCompleteMe'  " You Complete Me
+  Plug 'Valloric/YouCompleteMe'  " You Complete Me
 
-"Plug 'godlygeek/tabular'  " MARKDOWN
-"Plug 'plasticboy/vim-markdown'
+  "Plug 'godlygeek/tabular'  " MARKDOWN
+  "Plug 'plasticboy/vim-markdown'
 
-" Plug 'vimwiki/vimwiki' " VimWiki notes
+  " Plug 'vimwiki/vimwiki' " VimWiki notes
 
-" file tree 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-map <C-n> :NERDTreeToggle<CR>
-map <leader>/ :noh<CR>
+  " file tree 
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  map <C-n> :NERDTreeToggle<CR>
+  map <leader>/ :noh<CR>
 
-nnoremap <silent> <leader>rh :!pandoc % --to=html5 > %.html && explorer.exe %.html <cr>
-nnoremap <silent> <leader>rp :!pandoc % -t beamer > %.pdf && explorer.exe %.pdf <cr>
-nnoremap <silent> <leader>rd :!pandoc % --to=docx > %.docx && explorer.exe %.docx <cr>
+  nnoremap <silent> <leader>rh :!pandoc % --to=html5 > %.html && explorer.exe %.html <cr>
+  nnoremap <silent> <leader>rp :!pandoc % -t beamer > %.pdf && explorer.exe %.pdf <cr>
+  nnoremap <silent> <leader>rd :!pandoc % --to=docx > %.docx && explorer.exe %.docx <cr>
 
-" Plug 'tpope/vim-surround'  " Surround
-Plug 'kien/ctrlp.vim'  " Fuzzy File Search
-let g:ctrlp_show_hidden = 1
+  Plug 'tpope/vim-surround'  " Surround
+  Plug 'kien/ctrlp.vim'  " Fuzzy File Search
+  let g:ctrlp_show_hidden = 1
 
-Plug 'rlue/vim-getting-things-down'  " TODO LISTS
-Plug 'morhetz/gruvbox' " gruvbox color theme
-Plug 'arcticicestudio/nord-vim'  " Nord Theme
-Plug 'jnurmine/Zenburn' " ZenBurn Theme
+  Plug 'rlue/vim-getting-things-down'  " TODO LISTS
+  Plug 'morhetz/gruvbox' " gruvbox color theme
+  Plug 'arcticicestudio/nord-vim'  " Nord Theme
+  Plug 'jnurmine/Zenburn' " ZenBurn Theme
 
-Plug 'mattn/emmet-vim'
-let g:user_emmet_leader_key=','
+  Plug 'mattn/emmet-vim'
+  let g:user_emmet_leader_key=','
 
-" Table Mode
-Plug 'dhruvasagar/vim-table-mode'
+  " Table Mode
+  Plug 'dhruvasagar/vim-table-mode'
 
-" ORG MODE
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-speeddating'
+  " ORG MODE
+  Plug 'jceb/vim-orgmode'
+  Plug 'tpope/vim-speeddating'
 
 
 call plug#end()
@@ -149,10 +147,12 @@ else
 "    autocmd VimLeave * silent !echo -ne "\033[0 q"
 endi
 
-" Improve Performance
+"# Improve Performance
 "
 " NO IDEA WHAT IT DOES BUT AT FIRST SEEMS TO WORK
 set regexpengine=1
 
 
-
+" MAPPINGS
+nnoremap <leader>ev :vsplit ~/.config/.vimrc<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
