@@ -20,6 +20,8 @@ alias p="cd /mnt/d/Projects"
 alias ll="ls -hNg --color=auto --group-directories-first"
 alias ls='ls --color=auto'
 
+alias corona='curl https://corona-stats.online?top=10'
+
 export PATH=$PATH:~/.config/scripts
 
 function cs () {
