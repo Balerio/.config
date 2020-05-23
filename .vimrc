@@ -36,10 +36,12 @@ set softtabstop=4       " number of spaces in tab when editing
 set expandtab		    " tabs are spaces
 set shiftwidth=2
 
+set splitright
+
 set autoindent                        " maintain indent of current line
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
 
-set scrolloff=10 " always keep at least X lines on top/bottom while scrolling
+set scrolloff=999 " always keep at least X lines on top/bottom while scrolling
 
 " ignore wildcards (also for ctrlp)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*
@@ -68,7 +70,7 @@ endif
 
 set mouse=a  " Enable mouse srolling
 
-"" Automatically install plugged if not installed
+" Automatically install plugged if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -79,8 +81,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
   Plug 'vim-syntastic/syntastic' " Syntax Highligh
-  Plug 'vim-airline/vim-airline'  " bottom bar
-  Plug 'vim-airline/vim-airline-themes'
+  " Plug 'vim-airline/vim-airline'  " bottom bar
+  " Plug 'vim-airline/vim-airline-themes'
   Plug 'tomtom/tcomment_vim'  " Comments
   "Plug 'sickill/vim-pasta'  " Fix Indentation
 
@@ -123,8 +125,8 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 
-colorscheme gruvbox
-" colorscheme nord
+" colorscheme gruvbox
+colorscheme nord
 " colorscheme zenburn
 set background=dark
 set t_Co=256
