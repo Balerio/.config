@@ -6,6 +6,8 @@ nnoremap <leader>/ :noh<cr> " Clear Current Selection Highlight
 nnoremap , za               " open / close folding
 map <c-S> :w                " save with CTRL-S
 
+set clipboard=unnamed
+
 " split movements
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -25,10 +27,10 @@ set lazyredraw
 filetype plugin on
 filetype indent on	" load filetype-specific indent files
 
-syntax off
+syntax on
 set path+=**
 :map <leader>gf :e <cfile><cr> " create file under cursor
-syntax enable
+" syntax enable
 
 " tabs
 set tabstop=4		    " number of visual spaces per TAB
@@ -41,7 +43,7 @@ set splitright
 set autoindent                        " maintain indent of current line
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
 
-set scrolloff=999 " always keep at least X lines on top/bottom while scrolling
+set scrolloff=10 " always keep at least X lines on top/bottom while scrolling
 
 " ignore wildcards (also for ctrlp)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*
@@ -81,12 +83,12 @@ endif
 call plug#begin('~/.vim/plugged')
 
   Plug 'vim-syntastic/syntastic' " Syntax Highligh
-  " Plug 'vim-airline/vim-airline'  " bottom bar
-  " Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline'  " bottom bar
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'tomtom/tcomment_vim'  " Comments
   "Plug 'sickill/vim-pasta'  " Fix Indentation
 
-  Plug 'Valloric/YouCompleteMe'  " You Complete Me
+  " Plug 'Valloric/YouCompleteMe'  " You Complete Me
 
   "Plug 'godlygeek/tabular'  " MARKDOWN
   "Plug 'plasticboy/vim-markdown'
@@ -112,7 +114,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jnurmine/Zenburn' " ZenBurn Theme
 
   Plug 'mattn/emmet-vim'
-  let g:user_emmet_leader_key=','
+  " let g:user_emmet_leader_key=','
 
   " Table Mode
   Plug 'dhruvasagar/vim-table-mode'
@@ -121,6 +123,28 @@ call plug#begin('~/.vim/plugged')
   Plug 'jceb/vim-orgmode'
   Plug 'tpope/vim-speeddating'
 
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  Plug 'junegunn/limelight.vim'
+  " Color name (:help cterm-colors) or ANSI code
+  let g:limelight_conceal_ctermfg = 'gray'
+  let g:limelight_conceal_ctermfg = 240
+  "
+  " " Color name (:help gui-colors) or RGB color
+  let g:limelight_conceal_guifg = 'DarkGray'
+  let g:limelight_conceal_guifg = '#777777'
+  "
+  " " Default: 0.5
+  let g:limelight_default_coefficient = 0.7
+
+  " VIM TMUX NAVIGATION WITH CTRL-HJKL
+  Plug 'christoomey/vim-tmux-navigator'
+
+  " PYTHON PIP8 CHECKING
+  " Plug 'nvie/vim-flake8'
+  Plug 'dense-analysis/ale'
+  Plug 'sheerun/vim-polyglot'
+  let g:python_highlight_all = 1
 
 call plug#end()
 
@@ -135,7 +159,7 @@ set t_Co=256
 set term=screen-256color
 set t_ut=
 
-" set cursorline   " Set Highlight on Current Line
+set cursorline   " Set Highlight on Current Line
 
 " change the cursor on mode change
 if exists('$TMUX')
@@ -149,6 +173,11 @@ else
 "    autocmd VimLeave * silent !echo -ne "\033[0 q"
 endi
 
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
 "# Improve Performance
 "
 " NO IDEA WHAT IT DOES BUT AT FIRST SEEMS TO WORK
@@ -158,3 +187,17 @@ set regexpengine=1
 " MAPPINGS
 nnoremap <leader>ev :vsplit ~/.config/.vimrc<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+
+" PYTHON
+
+au BufNewFile,BufRead *.py
+    \set tabstop=4
+    \set softtabstop=4
+    \set shiftwidth=4
+    \set textwidth=79
+    \set expandtab
+    \set autoindent
+    \set fileformat=unix
+
+let python_highlight_all=1
