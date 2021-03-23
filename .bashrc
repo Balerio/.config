@@ -8,7 +8,9 @@ fi
 alias wp="~/.config/scripts/wp"
 
 alias v="vim"
-alias r="ranger"
+alias n="nvim"
+# alias r="ranger"
+alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias y="yay"
 alias w="curl wttr.in/Pomezia"
 

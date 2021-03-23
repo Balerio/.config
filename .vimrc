@@ -20,6 +20,7 @@ set timeoutlen=1000 ttimeoutlen=0 " remove delay when presing ESC EXPERIMENTAL
 
 "# Appearance
 set number relativenumber
+set signcolumn=yes
 set nocompatible
 set ttyfast
 set lazyredraw
@@ -201,3 +202,10 @@ au BufNewFile,BufRead *.py
     \set fileformat=unix
 
 let python_highlight_all=1
+
+" Highlight current window
+hi StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
+hi StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+
+
+autocmd BufNewFile  *.py	r ~/.config/nvim/templates/skeleton.py
